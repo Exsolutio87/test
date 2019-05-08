@@ -15,7 +15,8 @@ public class Spielfeld {
     private void init() {
         /**
          * Spielfeld wird aufgeteilt in 9 Felder von horizontal 0-2 (3) und
-         * vertikal 0-2 (3). Eingabe erfolgt mit Hilfe von 1-9 über die Nummerneingabe.
+         * vertikal 0-2 (3). Eingabe erfolgt mit Hilfe von 1-9 über die
+         * Nummerneingabe.
          *
          * Beispiel:
          *
@@ -45,39 +46,16 @@ public class Spielfeld {
         System.out.println(spielFeldMatrix[2][0] + "|" + spielFeldMatrix[2][1] + "|" + spielFeldMatrix[2][2]);
         System.out.println();
     }
-   
-    public void set(Spieler s, int p){
-        
-        
-        p--; 
-        int row = p/3;
-        int col = p%3;
-//        System.out.println("row=" + row + " col=" + col);
-        spielFeldMatrix[row][col]=s.getSign();
+
+    public boolean set(Spieler s, int p) {
+        p--;
+        int row = p / 3;
+        int col = p % 3;
+        //System.out.println("row=" + row + " col=" + col);
+        if (spielFeldMatrix[row][col] <= '9') {
+            spielFeldMatrix[row][col] = s.getSign();
+            return true;
+        }
+        return false;
     }
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-//    public void draw(){ 
-//        System.out.println("TIC---TAC---TOE" );
-//        System.out.println("[ 1 ][ 2 ][ 3 ]" );
-//        System.out.println(" ---||---||--- " );
-//        System.out.println("[ 4 ][ 5 ][ 6 ]" );               Wunschdesign
-//        System.out.println(" ---||---||--- " );
-//        System.out.println("[ 7 ][ 8 ][ 9 ]" );
-//        System.out.println(" ---||---||--- " );
-//    }
-    
 }
-
-
-
-

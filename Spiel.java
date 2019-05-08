@@ -29,8 +29,12 @@ public class Spiel {
             while (!spielfeld.set(aktuellerSpieler, feldwahl)) {
                 System.out.println(aktuellerSpieler.getName() + " erneut eingeben: ");
                 feldwahl = readInt();
+                if (feldwahl <= 9) {
+                    System.out.println("Danke für die Eingabe.");
+
+                }
+                break;
             }
-//                return feldwahl;
 
             if (feldwahl <= 9) {
                 System.out.println("Danke für die Eingabe.");

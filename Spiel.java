@@ -21,23 +21,24 @@ public class Spiel {
 
         int feldwahl;
 
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < 18; i++) {
             spielfeld.draw();
             System.out.println(aktuellerSpieler.getName() + " machen Sie ihre Eingabe: ");
             feldwahl = readInt();
 
+            while (!spielfeld.set(aktuellerSpieler, feldwahl)) {
+                System.out.println(aktuellerSpieler.getName() + " erneut eingeben: ");
+                feldwahl = readInt();
+            }
+//                return feldwahl;
+
             if (feldwahl <= 9) {
                 System.out.println("Danke für die Eingabe.");
 
-                spielfeld.set (aktuellerSpieler, feldwahl);
-            
-//            if (spielFeldMatrix[row][col] == null){
-//                spielfeld.set (aktuellerSpieler, feldwahl);
-//            } else { 
-//                System.out.println("Feld belegt.");
-//                break;
-//            }
-                
+                if (!spielfeld.set(aktuellerSpieler, feldwahl)) {
+                    System.out.println("Feld belegt.");
+                }
+
             } else {
                 System.out.println("Feld nicht verfügbar.");
             }

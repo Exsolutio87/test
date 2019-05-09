@@ -41,17 +41,18 @@ public class Spiel {
                 continue;
             }
 
-//            if (spielfeld.check == true) {
-//                System.out.println("Gewinner ermittelt!");
-//                System.out.println(aktuellerSpieler.getName() + ("Herzlichen Glückwunsch"));
-//                break;
-//            }
+            if (spielfeld.check() == true) {
+                System.out.println("Gewinner ermittelt!");
+                System.out.println(aktuellerSpieler.getName() + ("Herzlichen Glückwunsch"));
+                break;
+            }
 
             if (aktuellerSpieler == spielerX) {
                 aktuellerSpieler = spielerO;
             } else {
                 aktuellerSpieler = spielerX;
             }
+
         }
     }
 

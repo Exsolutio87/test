@@ -7,6 +7,7 @@ package game;
 public class Spielfeld {
 
     public char[][] spielFeldMatrix;
+    boolean check = true;
 
     public Spielfeld() {
         init();

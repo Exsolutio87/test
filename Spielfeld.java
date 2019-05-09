@@ -13,20 +13,7 @@ public class Spielfeld {
     }
 
     private void init() {
-        /**
-         * Spielfeld wird aufgeteilt in 9 Felder von horizontal 0-2 (3) und
-         * vertikal 0-2 (3). Eingabe erfolgt mit Hilfe von 1-9 über die
-         * Nummerneingabe.
-         *
-         * Beispiel:
-         *
-         * TIC TAC TOE 
-         * [1][2][3] 
-         * [4][O][6] 5 (Zweite Spalte, Zweites Feld)(double) 
-         * [X][8][9] 7 (Erste Spalte, Drittes Feld)
-         */
 
-        //Array
         spielFeldMatrix = new char[3][3];
         spielFeldMatrix[0][0] = '1';
         spielFeldMatrix[0][1] = '2';
@@ -51,11 +38,26 @@ public class Spielfeld {
         p--;
         int row = p / 3;
         int col = p % 3;
-        //System.out.println("row=" + row + " col=" + col);
         if (spielFeldMatrix[row][col] <= '9') {
             spielFeldMatrix[row][col] = s.getSign();
             return true;
         }
         return false;
+    }
+
+    public boolean check() {
+        return checkRow(spielFeldMatrix[0])
+                || checkRow(spielFeldMatrix[1])
+                || checkRow(spielFeldMatrix[2])
+                || checkRow(spielFeldMatrix[0][0], spielFeldMatrix[1][0], spielFeldMatrix[2][0])
+                || checkRow(spielFeldMatrix[0][1], spielFeldMatrix[1][1], spielFeldMatrix[2][1])
+                || checkRow(spielFeldMatrix[0][2], spielFeldMatrix[1][2], spielFeldMatrix[2][2])
+                || checkRow(spielFeldMatrix[0][0], spielFeldMatrix[1][1], spielFeldMatrix[2][2])
+                || checkRow(spielFeldMatrix[0][2], spielFeldMatrix[1][1], spielFeldMatrix[2][0]);
+
+    }
+
+    private boolean checkRow(char... row) { //var-arg (Variable Argumentliste)
+        return (row[0] == row[1] && row[0] == row[2]);
     }
 }

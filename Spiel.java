@@ -21,31 +21,32 @@ public class Spiel {
 
         int feldwahl;
 
-        for (int i = 0; i < 18; i++) {
+        for (int i = 0; i < 9; i++) {
             spielfeld.draw();
             System.out.println(aktuellerSpieler.getName() + " machen Sie ihre Eingabe: ");
             feldwahl = readInt();
-
-            while (!spielfeld.set(aktuellerSpieler, feldwahl)) {
-                System.out.println(aktuellerSpieler.getName() + " erneut eingeben: ");
-                feldwahl = readInt();
-                if (feldwahl <= 9) {
-                    System.out.println("Danke für die Eingabe.");
-
-                }
-                break;
-            }
 
             if (feldwahl <= 9) {
                 System.out.println("Danke für die Eingabe.");
 
                 if (!spielfeld.set(aktuellerSpieler, feldwahl)) {
-                    System.out.println("Feld belegt.");
+                    System.out.println("Feld belegt, bitte erneut eingeben.");
+                    i--;
+                    continue;
                 }
 
             } else {
-                System.out.println("Feld nicht verfügbar.");
+                System.out.println("Feld nicht verfügbar, bitte erneut eingeben");
+                i--;
+                continue;
             }
+
+//            if (spielfeld.check == true) {
+//                System.out.println("Gewinner ermittelt!");
+//                System.out.println(aktuellerSpieler.getName() + ("Herzlichen Glückwunsch"));
+//                break;
+//            }
+
             if (aktuellerSpieler == spielerX) {
                 aktuellerSpieler = spielerO;
             } else {

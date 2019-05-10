@@ -2,7 +2,7 @@ package game;
 
 /**
  *
- * @author Florian Leistner
+ * @author Exsolutio87
  */
 public class SpielerX extends Spieler {
 //Spieler X

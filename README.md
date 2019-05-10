@@ -1,5 +1,5 @@
 # test
-Tic Tac Toe @ Emilio
+Tic Tac Toe
 This is a simple Game, named Tic Tac Toe.
 
 It runs out of the console and contains a 2d array. 

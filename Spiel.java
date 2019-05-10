@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 /**
  *
- * @author Florian Leistner
+ * @author Exsolutio87
  */
 public class Spiel {
 

@@ -43,6 +43,7 @@ public class Spiel {
 
             if (spielfeld.check() == true) {
                 System.out.println("Gewinner ermittelt!");
+                spielfeld.draw();
                 System.out.println(aktuellerSpieler.getName() + ("Herzlichen Glückwunsch"));
                 break;
             }
